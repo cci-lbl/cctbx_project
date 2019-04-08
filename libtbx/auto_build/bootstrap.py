@@ -964,6 +964,8 @@ class msgpack_module(SourceModule):
     "https://gitcdn.link/repo/dials/dependencies/dials-1.13/msgpack-3.1.1.tar.gz",
     "https://github.com/dials/dependencies/raw/dials-1.13/msgpack-3.1.1.tar.gz",
   ]]
+  authentarfile = ['%(cciuser)s@cci.lbl.gov', 'msgpack.tar.gz', '/net/cci/auto_build/repositories/msgpack']
+  authenticated = ['rsync', '%(cciuser)s@cci.lbl.gov:/net/cci/auto_build/repositories/msgpack/']
 
 class xfel_regression_module(SourceModule):
   module = 'xfel_regression'
@@ -1814,11 +1816,11 @@ environment exists in or is defined by {conda_env}.
       self.python_base = self._get_conda_python()
       # conda python prefers no environment customizations
       # the get_environment function in ShellCommand updates the environment
-      env = {
-        'PYTHONPATH': None,
-        'LD_LIBRARY_PATH': None,
-        'DYLD_LIBRARY_PATH': None
-      }
+      #env = {
+      #  'PYTHONPATH': '',
+      #  'LD_LIBRARY_PATH': '',
+      #  'DYLD_LIBRARY_PATH': ''
+      #}
 
     configcmd =[
         self.python_base, # default to using our python rather than system python

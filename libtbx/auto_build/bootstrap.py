@@ -2811,6 +2811,7 @@ class QRBuilder(PhenixBuilder):
     environment = {}
     mopac_envs = {
       "MOPAC_LICENSE"  : "/home/builder/software/mopac",
+      "MOPAC_DIR"      : "/home/builder/software/mopac",
       "MOPAC_COMMAND"  : "/home/builder/software/mopac/mopac.csh",
     }
     for env, dirs in mopac_envs.items():

@@ -1015,6 +1015,13 @@ class ncdist_module(SourceModule):
                'https://github.com/yayahjb/ncdist.git',
                'https://github.com/yayahjb/ncdist/archive/master.zip']
 
+class ls49_module(SourceModule):
+  module = 'ls49'
+  anonymous = ['git',
+               'git@github.com:nksauter/LS49.git',
+               'https://github.com/nksauter/LS49.git',
+               'https://github.com/nksauter/LS49/archive/master.zip']
+
 MODULES = SourceModule()
 
 ###################################
@@ -2691,6 +2698,10 @@ class PhenixTNGBuilder(PhenixBuilder):
     configlst.append('--enable_cxx11')
     return configlst
 
+class LS49Builder(DIALSBuilder):
+  CODEBASES_EXTRA = DIALSBuilder.CODEBASES_EXTRA + ['ls49']
+  LIBTBX_EXTRA = DIALSBuilder.LIBTBX_EXTRA + ['ls49', '--enable_openmp_if_possible=True']
+
 def run(root=None):
   builders = {
     'cctbxlite': CCTBXLiteBuilder,
@@ -2705,7 +2716,8 @@ def run(root=None):
     'molprobity':MOLPROBITYBuilder,
     'qrefine': QRBuilder,
     'phaser': PhaserBuilder,
-    'voyager': PhaserTNGBuilder
+    'voyager': PhaserTNGBuilder,
+    'ls49': LS49Builder,
   }
 
   wrapper = textwrap.TextWrapper(width=80, initial_indent='  ',

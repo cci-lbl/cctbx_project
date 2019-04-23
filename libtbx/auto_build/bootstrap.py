@@ -1068,7 +1068,7 @@ class ncdist_module(SourceModule):
                'https://github.com/yayahjb/ncdist/archive/master.zip']
 
 class ls49_module(SourceModule):
-  module = 'ls49'
+  module = 'LS49'
   anonymous = ['git',
                'git@github.com:nksauter/LS49.git',
                'https://github.com/nksauter/LS49.git',
@@ -2862,8 +2862,8 @@ def set_builder_defaults(options):
   return options
 
 class LS49Builder(DIALSBuilder):
-  CODEBASES_EXTRA = DIALSBuilder.CODEBASES_EXTRA + ['ls49']
-  LIBTBX_EXTRA = DIALSBuilder.LIBTBX_EXTRA + ['ls49', '--enable_openmp_if_possible=True']
+  CODEBASES_EXTRA = DIALSBuilder.CODEBASES_EXTRA + ['LS49']
+  LIBTBX_EXTRA = DIALSBuilder.LIBTBX_EXTRA + ['LS49', '--enable_openmp_if_possible=True']
 
 def run(root=None):
   builders = {

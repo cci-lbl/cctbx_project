@@ -2160,6 +2160,13 @@ class PhaserTNGBuilder(PhaserBuilder):
         pass
     return codebases
 
+class Py3TestBuilder(CCIBuilder):
+  LIBTBX = [
+    'libtbx',
+    'fable',
+    'boost_adaptbx',
+  ]
+
 class CCTBXLiteBuilder(CCIBuilder):
   BASE_PACKAGES = 'cctbx'
     # Checkout these codebases

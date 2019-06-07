@@ -1803,11 +1803,12 @@ environment exists in or is defined by {conda_env}.
 
       # file or no path provided (case 1), case 2 handled in _get_conda_python
       if self.use_conda == '' or os.path.isfile(self.use_conda):
-        flags = ['--builder={builder}'.format(builder=self.category)]
+        flags = ['--builder={builder}'.format(builder='phenix')]
         # check if a file was an argument
         if os.path.isfile(self.use_conda):
           filename = os.path.abspath(self.use_conda)
           flags.append('--install_env={filename}'.format(filename=filename))
+
         # check for existing miniconda3 installation
         if not os.path.isdir('mc3'):
           flags.append('--install_conda')

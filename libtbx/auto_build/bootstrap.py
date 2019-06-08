@@ -1804,7 +1804,6 @@ environment exists in or is defined by {conda_env}.
       # file or no path provided (case 1), case 2 handled in _get_conda_python
       if self.use_conda == '' or os.path.isfile(self.use_conda):
         builder = 'cctbx'
-        print('HELLO!', self.category)
         if 'phenix' in self.category:
           builder = 'phenix'
         flags = ['--builder={builder}'.format(builder=builder)]

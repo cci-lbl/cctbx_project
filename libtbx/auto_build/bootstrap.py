@@ -2587,6 +2587,15 @@ in your path. """)
     if run_dials_tests:
       self.add_test_parallel('dials', flunkOnFailure=False, warnOnFailure=True)
 
+    # Copy database for phenix.find_program
+    self.add_step(self.shell(
+      name='Copy phenix.find_program database',
+      command=['curl', '--output',
+               os.path.join('..', 'modules', 'phenix_regression', 'misc', 'test_and_module_info.pkl'),
+               'http://cci.lbl.gov/~bkpoon/test_and_module_info.pkl'],
+      haltOnFailure=False))
+
+
 class PhenixExternalRegression(PhenixBuilder):
   EXTERNAL_CODEBASES = [
     "afitt",

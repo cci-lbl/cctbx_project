@@ -2493,8 +2493,8 @@ class PhenixBuilder(CCIBuilder):
 
       # set if dev_env will be created in base step
       self.install_dev_env = False
-      if not svn_is_available or not git_lfs_is_available:
-        self.install_dev_env = True
+      # if not svn_is_available or not git_lfs_is_available:
+      #   self.install_dev_env = True
 
       # get lfs files
       if self.install_dev_env:

@@ -2298,6 +2298,7 @@ class PhenixBuilder(CCIBuilder):
     'reel',
     'phaser',
     'phaser_regression',
+    'phaser_voyager',
     'labelit',
     'elbow',
     'amber_adaptbx',

@@ -2541,6 +2541,13 @@ in your path. """)
   def add_install(self):
     Builder.add_install(self)
 
+    # configure phasertng, but do not build because of Visual Studio 2008 and C++11
+    configcmd =['libtbx.configure', 'phasertng']
+    self.add_step(self.shell(command=configcmd, workdir=[_BUILD_DIR],
+      description="Configure phasertng", env=None))
+    #self.rebuild_docs()
+
+
   def get_libtbx_configure(self):
     configlst = super(PhenixBuilder, self).get_libtbx_configure()
     if '--enable_cxx11' in configlst:

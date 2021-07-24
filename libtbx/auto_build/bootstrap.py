@@ -2398,6 +2398,8 @@ class PhenixBuilder(CCIBuilder):
     'xia2',
     'prime',
   ]
+  if sys.platform != 'win32':
+    LIBTBX_EXTRA.append('phasertng')
 
   # select dials-3.2 branch
   def _add_git(self, module, parameters, destination=None):
@@ -2515,6 +2517,8 @@ in your path. """)
       configlst.append("--enable_openmp_if_possible=True")
     #if self.isPlatformMacOSX():
     #  configlst.append("--compiler=clang-omp")
+    if sys.platform != 'win32':
+      configlst.append("--enable_cxx11")
     return configlst
 
 

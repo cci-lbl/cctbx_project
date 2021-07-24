@@ -2434,8 +2434,6 @@ class PhenixBuilder(CCIBuilder):
     # 'xia2',
     # 'prime',
   ]
-  if sys.platform != 'win32':
-    LIBTBX_EXTRA.append('phasertng')
 
   # select dials-3.8 branch
   def _add_git(self, module, parameters, destination=None):
@@ -2552,6 +2550,9 @@ in your path. """)
 
   def get_libtbx_configure(self):
     configlst = super(PhenixBuilder, self).get_libtbx_configure()
+    if not self.isPlatformWindows():
+      configlst.insert(0, 'phasertng')
+      configlst.append("--enable_cxx11")
     if '--enable_cxx11' in configlst:
       configlst.remove('--enable_cxx11')
     set_std = ['cxxstd' in conf for conf in configlst]
@@ -2564,8 +2565,6 @@ in your path. """)
       configlst.append("--enable_openmp_if_possible=True")
     #if self.isPlatformMacOSX():
     #  configlst.append("--compiler=clang-omp")
-    if sys.platform != 'win32':
-      configlst.append("--enable_cxx11")
     return configlst
 
   def rebuild_docs(self):

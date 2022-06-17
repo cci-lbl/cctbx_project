@@ -1433,7 +1433,7 @@ class Builder(object):
       description="delete remote temporary archive of %s" %module,
     ))
     self.add_step(self.shell(command=[
-      sys.executable,"-c","import sys; sys.path.append('..'); import bootstrap; \
+      "python","-c","import sys; sys.path.append('..'); import bootstrap; \
       bootstrap.tar_extract('','%s', '%s')" %(arxname, module) ],
       workdir=['modules'],
       description="extracting archive files to %s" %module,
@@ -1489,7 +1489,7 @@ class Builder(object):
     self.add_step(self.shell(
       name="extracting files from %s" %filename,
       command=[
-       sys.executable,"-c","import sys; sys.path.append('..'); import bootstrap; \
+       "python","-c","import sys; sys.path.append('..'); import bootstrap; \
        bootstrap.tar_extract('','%s')" %filename],
       workdir=['modules'],
       description="extracting files from %s" %filename,
@@ -1559,7 +1559,7 @@ class Builder(object):
     # Update version information
     if module == 'cctbx_project':
       workdir = ['modules', module]
-      self.add_step(self.shell(command=[sys.executable, os.path.join('libtbx', 'version.py')], workdir=workdir))
+      self.add_step(self.shell(command=['python', os.path.join('libtbx', 'version.py')], workdir=workdir))
 
     # Use dials-2.2 branches for Python 2
     if (module == 'dials' or module == 'dxtbx' or module == 'xia2') and not self.python3:
@@ -1576,7 +1576,7 @@ class Builder(object):
     if self.isPlatformWindows():
       # platform specific checks cannot run on buildbot master so add to build steps to run on slaves
       self.add_step(self.shell(command=[
-         sys.executable,"-c","import sys; sys.path.append('..'); import bootstrap; \
+         "python","-c","import sys; sys.path.append('..'); import bootstrap; \
           bootstrap.CheckWindowsPrerequisites()"],
         workdir=['modules'],
         description="Checking Windows prerequisites",
@@ -1751,7 +1751,7 @@ environment exists in or is defined by {conda_env}.
       if "--skip-if-exists" not in extra_opts:
         extra_opts.append("--skip-if-exists")
     command=[
-      sys.executable,
+      'python',
       self.opjoin('modules', 'cctbx_project', 'libtbx', 'auto_build', 'install_base_packages.py'),
       '--python-shared',
       '--%s'%self.BASE_PACKAGES
@@ -1790,7 +1790,7 @@ environment exists in or is defined by {conda_env}.
           flags.append('--install_conda')
         flags.append('--python={python}'.format(python=self.python))
         command = [
-          sys.executable,
+          'python',
           self.opjoin('modules', 'cctbx_project', 'libtbx', 'auto_build',
                       'install_conda.py',)] + flags
 
@@ -1899,7 +1899,7 @@ environment exists in or is defined by {conda_env}.
       confstr = '#!/bin/sh\n\n' + confstr
     # klonky way of writing file later on, but it works
     self.add_step(self.shell(command=[
-         sys.executable,'-c','open(r\"%s\",\"w\").write(r\"\"\"%s\"\"\" + \"\\n\")' %(fname, confstr)
+         'python','-c','open(r\"%s\",\"w\").write(r\"\"\"%s\"\"\" + \"\\n\")' %(fname, confstr)
          ],
       workdir=[_BUILD_DIR],
       description="save configure command",
@@ -2604,7 +2604,7 @@ class PhenixExternalRegression(PhenixBuilder):
       outl += 'setenv %(key)s "%%(PWD)s/../%(path)s"\n' % locals()
     fname="%s.csh" % filename
     self.add_step(self.shell(command=[
-      sys.executable,
+      'python',
       '-c',
       'import os; open("%s","w").write("""%s""" %% os.environ)' %(fname, outl)
       ],
@@ -2617,7 +2617,7 @@ class PhenixExternalRegression(PhenixBuilder):
       outl += 'export %(key)s="%%(PWD)s/../%(path)s"\n' % locals()
     fname="%s.sh" % filename
     self.add_step(self.shell(command=[
-      sys.executable,
+      'python',
       '-c',
       'import os; open("%s","w").write("""%s""" %% os.environ)' %(fname, outl)
       ],

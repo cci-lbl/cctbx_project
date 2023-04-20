@@ -725,9 +725,9 @@ class annlib_module(SourceModule):
 
 class scons_module(SourceModule):
   module = 'scons'
-  anonymous = ['curl', 'http://cci.lbl.gov/repositories/scons.gz']
-  authentarfile = ['%(cciuser)s@cci.lbl.gov', 'scons.tar.gz', '/net/cci/auto_build/repositories/scons']
-  authenticated = ['rsync', '%(cciuser)s@cci.lbl.gov:/net/cci/auto_build/repositories/scons/']
+  anonymous = ['curl', 'http://boa.lbl.gov/repositories/scons.gz']
+  authentarfile = ['%(cciuser)s@boa.lbl.gov', 'scons.tar.gz', '/net/cci/auto_build/repositories/scons']
+  authenticated = ['rsync', '%(cciuser)s@boa.lbl.gov:/net/cci/auto_build/repositories/scons/']
 
 # external modules
 class rosetta_class(SourceModule):
@@ -1006,8 +1006,8 @@ class msgpack_module(SourceModule):
     "https://gitcdn.link/repo/dials/dependencies/dials-1.13/msgpack-3.1.1.tar.gz",
     "https://github.com/dials/dependencies/raw/dials-1.13/msgpack-3.1.1.tar.gz",
   ]]
-  authentarfile = ['%(cciuser)s@cci.lbl.gov', 'msgpack.tar.gz', '/net/cci/auto_build/repositories/msgpack']
-  authenticated = ['rsync', '%(cciuser)s@cci.lbl.gov:/net/cci/auto_build/repositories/msgpack/']
+  authentarfile = ['%(cciuser)s@boa.lbl.gov', 'msgpack.tar.gz', '/net/cci/auto_build/repositories/msgpack']
+  authenticated = ['rsync', '%(cciuser)s@boa.lbl.gov:/net/cci/auto_build/repositories/msgpack/']
 
 class xfel_regression_module(SourceModule):
   module = 'xfel_regression'
@@ -2599,7 +2599,7 @@ in your path. """)
       name='Copy phenix.find_program database',
       command=['curl', '--output',
                os.path.join('..', 'modules', 'phenix_regression', 'misc', 'test_and_module_info.pkl'),
-               'http://cci.lbl.gov/~bkpoon/test_and_module_info.pkl'],
+               'http://boa.lbl.gov/~bkpoon/test_and_module_info.pkl'],
       haltOnFailure=False))
 
 

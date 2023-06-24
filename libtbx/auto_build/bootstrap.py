@@ -2412,6 +2412,10 @@ class PhenixBuilder(CCIBuilder):
       self.add_step(self.shell(
         command=['git', 'branch', '--set-upstream-to=origin/dials-3.2', 'dials-3.2'],
         workdir=workdir))
+    if module == 'iota' and not self.python3:
+      self.add_step(self.shell(
+        command=['git', 'checkout', '5c2792911730855ccf91308a24db8af6a8f302be'],
+        workdir=workdir))
 
   def add_module(self, module, workdir=None, module_directory=None):
     """

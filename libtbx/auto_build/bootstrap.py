@@ -1572,6 +1572,11 @@ class Builder(object):
         command=['git', 'branch', '--set-upstream-to=origin/dials-2.2', 'dials-2.2'],
         workdir=workdir))
 
+    if module == 'iota' and not self.python3:
+      self.add_step(self.shell(
+        command=['git', 'checkout', '5c2792911730855ccf91308a24db8af6a8f302be'],
+        workdir=workdir))
+
   def _check_for_Windows_prerequisites(self):
     if self.isPlatformWindows():
       # platform specific checks cannot run on buildbot master so add to build steps to run on slaves
@@ -2411,10 +2416,6 @@ class PhenixBuilder(CCIBuilder):
       self.add_step(self.shell(command=['git', 'checkout', 'dials-3.2'], workdir=workdir))
       self.add_step(self.shell(
         command=['git', 'branch', '--set-upstream-to=origin/dials-3.2', 'dials-3.2'],
-        workdir=workdir))
-    if module == 'iota' and not self.python3:
-      self.add_step(self.shell(
-        command=['git', 'checkout', '5c2792911730855ccf91308a24db8af6a8f302be'],
         workdir=workdir))
 
   def add_module(self, module, workdir=None, module_directory=None):

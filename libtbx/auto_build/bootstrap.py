@@ -840,7 +840,7 @@ class gui_resources_module(SourceModule):
 
 class opt_resources_module(SourceModule):
   module = 'opt_resources'
-  authenticated = ['git', 'git@github.com:phenix-project/opt_resources.git']
+  anonymous = ['git', 'git@github.com:phenix-project/opt_resources.git']
 
 class eigen_module(SourceModule):
   module = 'eigen'
@@ -884,11 +884,11 @@ class phenix_colabs(SourceModule):
 
 class plex_module(SourceModule):
   module = 'Plex'
-  authenticated = ['git', 'git@github.com:phenix-project/Plex.git']
+  anonymous = ['git', 'git@github.com:phenix-project/Plex.git']
 
 class pyquante_module(SourceModule):
   module = 'PyQuante'
-  authenticated = ['git', 'git@github.com:phenix-project/PyQuante.git']
+  anonymous = ['git', 'git@github.com:phenix-project/PyQuante.git']
 
 class chem_data_module(SourceModule):
   module = 'chem_data'
@@ -898,15 +898,15 @@ class chem_data_module(SourceModule):
 
 class elbow_module(SourceModule):
   module = 'elbow'
-  authenticated = ['git', 'git@github.com:phenix-project/elbow.git']
+  anonymous = ['git', 'git@github.com:phenix-project/elbow.git']
 
 class ksdssp_module(SourceModule):
   module = 'ksdssp'
-  authenticated = ['git', 'git@github.com:phenix-project/ksdssp.git']
+  anonymous = ['git', 'git@github.com:phenix-project/ksdssp.git']
 
 class pulchra_module(SourceModule):
   module = 'pulchra'
-  authenticated = ['git', 'git@github.com:phenix-project/pulchra.git']
+  anonymous = ['git', 'git@github.com:phenix-project/pulchra.git']
 
 class solve_resolve_module(SourceModule):
   module = 'solve_resolve'
@@ -914,11 +914,11 @@ class solve_resolve_module(SourceModule):
 
 class reel_module(SourceModule):
   module = 'reel'
-  authenticated = ['git', 'git@github.com:phenix-project/reel.git']
+  anonymous = ['git', 'git@github.com:phenix-project/reel.git']
 
 class muscle_module(SourceModule):
   module = 'muscle'
-  authenticated = ['git', 'git@github.com:phenix-project/muscle.git']
+  anonymous = ['git', 'git@github.com:phenix-project/muscle.git']
 
 class cxi_xdr_xes_module(SourceModule):
   module = 'cxi_xdr_xes'
@@ -926,7 +926,7 @@ class cxi_xdr_xes_module(SourceModule):
 
 class buildbot_module(SourceModule):
   module = 'buildbot'
-  authenticated = ['git', 'git@github.com:cci-lbl/buildbot.git']
+  anonymous = ['git', 'git@github.com:cci-lbl/buildbot.git']
 
 class phenix_pathwalker_module(SourceModule):
   module = 'phenix_pathwalker'
@@ -1011,7 +1011,7 @@ class msgpack_module(SourceModule):
 
 class xfel_regression_module(SourceModule):
   module = 'xfel_regression'
-  authenticated = ['git',
+  anonymous = ['git',
                    'git@gitlab.com:cctbx/xfel_regression.git',
                    'https://gitlab.com/cctbx/xfel_regression.git']
 
